@@ -1,56 +1,230 @@
-# Welcome to your Expo app 👋
+# 🎓 Passe Estudantil Digital
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+> Transformando o passe estudantil físico em uma credencial digital segura, acessível e sempre disponível no smartphone.
 
-## Get started
+## 📖 Sobre o Projeto
 
-1. Install dependencies
+O **Passe Estudantil Digital** nasceu da observação de um problema recorrente enfrentado por estudantes do Distrito Federal: a perda ou o esquecimento do cartão físico utilizado no transporte público.
 
-   ```bash
-   npm install
-   ```
+Enquanto cartões bancários, ingressos, documentos e até chaves já podem ser armazenados em carteiras digitais, o passe estudantil ainda depende exclusivamente de um cartão físico.
 
-2. Start the app
+Este projeto propõe uma solução moderna para esse problema por meio da criação de uma credencial digital segura, que poderá futuramente ser utilizada em sistemas oficiais de transporte público.
 
-   ```bash
-   npx expo start
-   ```
+> **Importante:** este projeto não possui qualquer vínculo com órgãos públicos ou empresas de transporte. Seu objetivo é servir como prova de conceito (Proof of Concept) e estudo de arquitetura para sistemas de bilhetagem digital.
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+# 🎯 Objetivos
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+* Eliminar a dependência do cartão físico.
+* Permitir bloqueio e reemissão instantânea da credencial.
+* Aumentar a segurança contra clonagem e uso indevido.
+* Facilitar futuras integrações com sistemas de transporte.
+* Demonstrar uma arquitetura moderna para credenciais digitais.
 
-## Get a fresh project
+---
 
-When you're ready, run:
+# 🚀 MVP
 
-```bash
-npm run reset-project
+A primeira versão do projeto terá foco na validação do conceito.
+
+Funcionalidades previstas:
+
+* Cadastro de estudantes
+* Login seguro
+* Painel administrativo
+* Aprovação de estudantes
+* Emissão de passe digital
+* QR Code dinâmico
+* Simulador de validador/catraca
+* Histórico de validações
+* Bloqueio e revogação de passes
+
+---
+
+# 🏗 Arquitetura
+
+```text
+                +----------------------+
+                |   Aplicativo Mobile  |
+                |   (React Native)     |
+                +----------+-----------+
+                           |
+                           |
+                    HTTPS / REST API
+                           |
+                           ▼
+                +----------------------+
+                |     Laravel API      |
+                +----------+-----------+
+                           |
+                           |
+                    PostgreSQL Database
+                           |
+                           ▼
+        +-----------------------------------+
+        | Estudantes                        |
+        | Passes                            |
+        | Validações                        |
+        | Logs                              |
+        +-----------------------------------+
+
+                           ▲
+                           |
+                +----------+-----------+
+                | Painel Administrativo |
+                | Laravel Blade         |
+                +-----------------------+
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-### Other setup steps
+# 📱 Tecnologias
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## Mobile
 
-## Learn more
+* React Native
+* Expo
+* TypeScript
+* Expo Camera
+* Expo Secure Store
 
-To learn more about developing your project with Expo, look at the following resources:
+## Backend
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+* Laravel
+* PHP
+* PostgreSQL
+* JWT Authentication
 
-## Join the community
+## Painel Administrativo
 
-Join our community of developers creating universal apps.
+* Laravel Blade
+* Tailwind CSS
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+# 🔐 Segurança
+
+O projeto foi concebido com foco em segurança desde o início.
+
+Algumas medidas planejadas:
+
+* QR Code dinâmico
+* Assinatura criptográfica (HMAC)
+* Expiração automática das credenciais
+* Revogação de passes
+* Autenticação JWT
+* Registro de logs
+* Proteção contra reutilização de QR Codes
+
+---
+
+# 📂 Estrutura Inicial
+
+```text
+digital-student-pass/
+
+├── backend/
+│   ├── app/
+│   ├── database/
+│   ├── routes/
+│   └── ...
+│
+├── mobile/
+│   ├── app/
+│   ├── components/
+│   ├── services/
+│   └── ...
+│
+├── admin/
+│   ├── resources/
+│   ├── public/
+│   └── ...
+│
+├── docs/
+│   ├── arquitetura/
+│   ├── diagramas/
+│   └── pesquisas/
+│
+└── README.md
+```
+
+---
+
+# 🗺 Roadmap
+
+## Fase 1
+
+* [ ] Definição da arquitetura
+* [ ] Modelagem do banco
+* [ ] Configuração do ambiente
+* [ ] Estrutura inicial do backend
+
+## Fase 2
+
+* [ ] Cadastro de estudantes
+* [ ] Login
+* [ ] Painel administrativo
+* [ ] Emissão de passe
+
+## Fase 3
+
+* [ ] Aplicativo mobile
+* [ ] QR Code dinâmico
+* [ ] Histórico de utilização
+
+## Fase 4
+
+* [ ] Aplicativo validador
+* [ ] Simulação de catraca
+* [ ] Logs de validação
+
+## Fase 5
+
+* [ ] Testes
+* [ ] Documentação
+* [ ] Deploy
+* [ ] Demonstração pública
+
+## Futuras funcionalidades
+
+* NFC
+* Integração com Google Wallet
+* Integração com Apple Wallet
+* Credencial offline
+* Biometria
+* Push Notifications
+* Integração com sistemas oficiais de transporte
+* Integração com identidade estudantil digital
+
+---
+
+# 💡 Visão de Futuro
+
+A longo prazo, o projeto busca demonstrar que credenciais estudantis podem evoluir para um modelo totalmente digital, reduzindo custos operacionais, diminuindo perdas de cartões físicos e melhorando a experiência dos estudantes.
+
+Embora o MVP utilize QR Codes para validação, a arquitetura foi planejada para permitir futuras integrações com tecnologias como NFC, carteiras digitais e sistemas oficiais de bilhetagem.
+
+---
+
+# 🤝 Contribuições
+
+Contribuições são bem-vindas.
+
+Caso tenha sugestões, ideias ou melhorias, fique à vontade para abrir uma *Issue* ou enviar um *Pull Request*.
+
+---
+
+# 📄 Licença
+
+Este projeto está licenciado sob a licença MIT.
+
+---
+
+## 👨‍💻 Autor
+
+**Murilo Ribeiro**
+
+Engenheiro de Software em formação, apaixonado por desenvolvimento mobile, arquitetura de software, inteligência artificial e soluções que geram impacto real na sociedade.
+
+> "A melhor tecnologia é aquela que resolve problemas reais de forma simples e segura."
