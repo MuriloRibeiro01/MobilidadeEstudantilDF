@@ -2,7 +2,7 @@
 
 ## Problema
 
-Muitas vezes estudantes perdem, quebram ou esquecem seus passes estudantis.
+Muitas vezes estudantes perdem, quebram ou esquecem seus passes estudantis. Sendo preciso imprimir outro cartão.
 
 ## Solução
 
