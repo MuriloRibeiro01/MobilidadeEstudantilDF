@@ -33,10 +33,10 @@ export default function HomeScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
           <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
+            Mobilidade Digital
           </ThemedText>
+          <AnimatedIcon />          
         </ThemedView>
 
         <ThemedText type="code" style={styles.code}>
