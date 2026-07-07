@@ -27,6 +27,9 @@ export default function AppTabs() {
           <TabTrigger name="aluno" href="/aluno" asChild>
             <TabButton>Aluno</TabButton>
           </TabTrigger>
+          <TabTrigger name="login" href="/login" asChild>
+            <TabButton>Entrar</TabButton>
+          </TabTrigger>
         </CustomTabList>
       </TabList>
     </Tabs>
